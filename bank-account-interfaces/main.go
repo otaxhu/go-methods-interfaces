@@ -5,16 +5,11 @@ import (
 
 	"github.com/otaxhu/go-methods-interfaces/bank-account-interfaces/interfaces"
 	"github.com/otaxhu/go-methods-interfaces/bank-account-interfaces/models"
+	"github.com/otaxhu/go-methods-interfaces/bank-account-interfaces/router"
 )
 
 func main() {
-	//router.InitializeRouter()
-	bolivares := models.NewBolivaresAccount()
-	dolares := models.NewUSDaccount()
-	user1 := models.NewUser().SetName("Oscar Pernia").AddBankAccounts(bolivares, dolares)
-	printUserWithBalances(user1)
-	bolivares.Deposit(100)
-	printUserWithBalances(user1)
+	router.InitializeRouter()
 }
 
 func printBalance(account interfaces.IBankAccounts) {
