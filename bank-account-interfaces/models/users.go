@@ -1,6 +1,9 @@
 package models
 
 import (
+	"encoding/json"
+	"io"
+
 	"github.com/otaxhu/go-methods-interfaces/bank-account-interfaces/interfaces"
 )
 
@@ -53,4 +56,9 @@ func (u *User) Withdraw(amount int, currency string) error {
 		}
 	}
 	return errCurrencyAccountNotFound
+}
+
+func (u *User) DecodeJson(r io.Reader) *User {
+	json.NewDecoder(r).Decode(&u)
+	return u
 }
